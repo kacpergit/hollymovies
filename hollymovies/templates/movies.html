@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% load movie_extras %}
+
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/movies.css' %}" />
+{% endblock %}
+{% block content %}
+    <div class="main">
+        <h1>Welcome to HollyMovies!{{ x }}<img src="media/holly.jpg"/></h1>
+
+    </div>
+    
+    <ul>
+        {% for movie in object_list %}
+        <li>
+            <p>{{movie.title}} ({{movie.released.year}}) {{movie.genre.name}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
